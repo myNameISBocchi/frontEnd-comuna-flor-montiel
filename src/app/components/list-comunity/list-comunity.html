@@ -1,111 +1,79 @@
-<div class="container mb-5">
-    <div class="card border-primary shadow-lg bg-dark glass-card">
-        <div class="card-body p-4">
-            <h4 class="text-primary mb-4 d-flex align-items-center">
-                <i class="fa-solid fa-circle-plus me-2"></i> Gestión de Comunidades
-            </h4>
-            <form (submit)="createComunity($event)" class="row g-3 align-items-end">
-                <div class="col-md-5">
-                    <label class="form-label text-info small uppercase fw-bold">Nombre de Comunidad</label>
-                    <input type="text" class="form-control bg-black text-info border-info custom-input" name="comunityName" placeholder="Ej. Urbanización Neón" required>
-                </div>
-                <div class="col-md-5">
-                    <label class="form-label text-info small uppercase fw-bold">Coordenadas / Ubicación</label>
-                    <input type="text" class="form-control bg-black text-info border-info custom-input" name="googleMaps" placeholder="Ej. Sector 4, Av. Principal" required>
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" class="btn btn-primary w-100 shadow-neon py-2">
-                        <i class="fa-solid fa-floppy-disk me-1"></i> Registrar
-                    </button>
-                </div>
-            </form>
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+    <h2 class="text-primary fw-bold mb-0">
+      <i class="fa-solid fa-city me-2"></i>Gestión de Sectores
+    </h2>
+    <span class="badge bg-primary rounded-pill px-3 py-2 fs-6">
+      {{comunity.length}} Comunidades Activas
+    </span>
+  </div>
+
+  <div class="card border-0 shadow-sm mb-5">
+    <div class="card-body p-4">
+      <h5 class="fw-bold mb-4 text-dark text-uppercase small ls-2">Nuevo Registro</h5>
+      <form (submit)="createComunity($event)" class="row g-3 align-items-center">
+        <div class="col-md-5">
+          <div class="form-floating">
+            <input type="text" class="form-control border-0 bg-light" id="comName" name="comunityName" placeholder="Nombre" required>
+            <label for="comName">Nombre de la Comunidad</label>
+          </div>
         </div>
-    </div>
-</div>
-
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-4 border-bottom border-info pb-3">
-        <h2 class="text-info m-0 italic">Comunidades Activas</h2>
-        <span class="badge rounded-pill bg-info text-dark">{{comunity.length}} Registros</span>
-    </div>
-
-    <div class="row">
-        @for(item of comunity; track item.comunityId){
-            <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                <div class="card border-secondary h-100 bg-dark shadow-hover card-vapor">
-                    <div class="image-container">
-                        <img [src]="'http://localhost/app-back/public/' + item.photoComunity"
-                             class="card-img-top" 
-                             alt="comunidad">
-                        <div class="image-overlay"></div>
-                    </div>
-                    
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-warning text-uppercase ls-1 fw-black">{{item.comunityName}}</h5>
-                        <p class="card-text text-light-emphasis flex-grow-1">
-                            <i class="fa-solid fa-location-dot text-info me-2"></i>{{item.googleMaps}}
-                        </p>
-
-                        <div class="actions-grid mt-3">
-                            <button type="button" class="btn btn-action btn-outline-danger" (click)='deleteComunity(item.comunityId)' title="Eliminar">
-                                <i class="fa-solid fa-trash-can"></i>
-                            </button>
-
-                            <div class="btn-upload-wrapper">
-                                <label [for]="'file-' + item.comunityId" class="btn btn-action btn-outline-success m-0" title="Cambiar Imagen">
-                                    <i class="fa-solid fa-camera"></i>
-                                </label>
-                                <input type="file" [id]="'file-' + item.comunityId" hidden (change)="onFileSelected($event, item.comunityId)">
-                            </div>
-
-                            <button type="button" class="btn btn-action btn-outline-info"
-                                    data-bs-toggle="modal" data-bs-target="#editModal"
-                                    (click)="openModalButton(item)" title="Editar">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }@empty{
-            <div class="col-12 text-center py-5">
-                <div class="alert bg-black border-warning text-warning shadow-neon-warning py-4">
-                    <i class="fa-solid fa-triangle-exclamation fa-3x mb-3"></i>
-                    <h4 class="alert-heading ls-2">BASE DE DATOS VACÍA</h4>
-                    <p class="mb-0">No se detectan señales en el sector. Inicie un nuevo registro.</p>
-                </div>
-            </div>
-        }
-    </div>
-</div>
-
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-dark border-info shadow-neon">
-            <div class="modal-header border-info">
-                <h5 class="modal-title text-info" id="editModalLabel">Actualizar Comunidad</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form (submit)="updateComunity($event)" *ngIf="comunitySelect">
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label text-warning small fw-bold">Nombre de Comunidad</label>
-                        <input type="text" class="form-control bg-black text-info border-info" 
-                               [(ngModel)]="comunitySelect.comunityName" name="comunityName" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label text-warning small fw-bold">Coordenadas / Ubicación</label>
-                        <input type="text" class="form-control bg-black text-info border-info" 
-                               [(ngModel)]="comunitySelect.googleMaps" name="googleMaps" required>
-                    </div>
-                </div>
-                <div class="modal-footer border-info">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary shadow-neon" data-bs-dismiss="modal">
-                        Actualizar Datos
-                    </button>
-                </div>
-            </form>
+        <div class="col-md-5">
+          <div class="form-floating">
+            <input type="text" class="form-control border-0 bg-light" id="comMaps" name="googleMaps" placeholder="Ubicación" required>
+            <label for="comMaps">Coordenadas / Ubicación</label>
+          </div>
         </div>
+        <div class="col-md-2 d-grid">
+          <button type="submit" class="btn btn-primary py-3 shadow-sm fw-bold">
+            <i class="fa-solid fa-plus me-1"></i>Añadir
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
+
+  <div class="row">
+    @for(item of comunity; track item.comunityId) {
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden">
+          <div class="position-relative">
+            <img [src]="'http://localhost/app-back/public/' + item.photoComunity" 
+                 class="card-img-top" style="height: 180px; object-fit: cover;" alt="comunidad">
+            <span class="badge bg-success position-absolute top-0 end-0 m-3">Verificado</span>
+          </div>
+          
+          <div class="card-body p-4">
+            <h5 class="card-title fw-bold text-dark mb-2">{{item.comunityName}}</h5>
+            <p class="text-muted small mb-4">
+              <i class="fa-solid fa-location-dot me-2 text-danger"></i>{{item.googleMaps}}
+            </p>
+
+            <div class="d-flex gap-2 border-top pt-3">
+              <button class="btn btn-info btn-sm flex-grow-1 text-white shadow-sm" 
+                      data-bs-toggle="modal" data-bs-target="#editModal" (click)="openModalButton(item)">
+                <i class="fa-solid fa-pen me-1"></i>Editar
+              </button>
+              
+              <label [for]="'file-' + item.comunityId" class="btn btn-outline-secondary btn-sm shadow-sm">
+                <i class="fa-solid fa-camera"></i>
+              </label>
+              <input type="file" [id]="'file-' + item.comunityId" hidden (change)="onFileSelected($event, item.comunityId)">
+              
+              <button class="btn btn-outline-danger btn-sm shadow-sm" (click)="deleteComunity(item.comunityId)">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <div class="col-12 text-center py-5">
+        <div class="p-5 bg-white rounded-3 shadow-sm">
+          <i class="fa-solid fa-magnifying-glass fa-3x text-light mb-3"></i>
+          <h4 class="text-muted">No se encontraron registros</h4>
+        </div>
+      </div>
+    }
+  </div>
 </div>

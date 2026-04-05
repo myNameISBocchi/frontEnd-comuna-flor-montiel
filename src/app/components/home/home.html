@@ -1,0 +1,51 @@
+<div class="container py-5">
+  <header class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-dark">Panel de Control</h1>
+    <p class="lead text-muted">Gestión Comunitaria Flor-Montiel</p>
+    <hr class="my-4 w-25 mx-auto border-primary border-3">
+  </header>
+
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0 hover-lift ripple-card" routerLink="/person">
+        <div class="card-body text-center p-5">
+          <div class="icon-shape bg-light-primary rounded-circle mb-4 mx-auto">
+            <i class="fa-solid fa-users fa-3x text-primary"></i>
+          </div>
+          <h3 class="card-title h4 fw-bold">Personas</h3>
+          <p class="card-text text-muted">Censos, registros y datos detallados de los habitantes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0 hover-lift ripple-card" routerLink="/comunity">
+        <div class="card-body text-center p-5">
+          <div class="icon-shape bg-light-success rounded-circle mb-4 mx-auto">
+            <i class="fa-solid fa-house-chimney fa-3x text-success"></i>
+          </div>
+          <h3 class="card-title h4 fw-bold">Comunidades</h3>
+          <p class="card-text text-muted">Gestión de sectores, voceros y organizaciones locales.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0 hover-lift ripple-card disabled-card">
+        <div class="card-body text-center p-5">
+          <div class="icon-shape bg-light-info rounded-circle mb-4 mx-auto">
+            <i class="fa-solid fa-gears fa-3x text-info"></i>
+          </div>
+          <h3 class="card-title h4 fw-bold text-muted">Ajustes</h3>
+          <p class="card-text text-muted small">Configuración del sistema y gestión de roles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-5">
+    <button (click)="logout()" class="btn btn-outline-danger btn-lg px-5 shadow-sm">
+      <i class="fa-solid fa-right-from-bracket me-2"></i>Cerrar Sesión
+    </button>
+  </div>
+</div>

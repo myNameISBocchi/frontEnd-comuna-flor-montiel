@@ -1,0 +1,84 @@
+:host {
+  display: block;
+}
+
+.login-wrapper {
+  background-color: #f8f9fa; /* Fondo gris muy suave para que la tarjeta resalte */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover sutil para la tarjeta */
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1.5rem 3rem rgba(103, 58, 183, 0.1) !important; /* Sombras con tinte morado */
+}
+
+/* Estilo para los Input Groups Modernos */
+.custom-input-group {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-input-group:focus-within {
+  border-color: #673ab7; /* Azul/Morado Cosmo al enfocar */
+  box-shadow: 0 0 0 0.25rem rgba(103, 58, 183, 0.1);
+}
+
+.form-control:focus {
+  box-shadow: none;
+  background-color: #ffffff !important;
+}
+
+/* Iconos de cabecera y acentos de color */
+.header-icon {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-light-purple {
+  background-color: rgba(103, 58, 183, 0.08); /* Morado muy claro de fondo */
+}
+
+.text-purple-accent {
+  color: #673ab7; /* Morado base */
+}
+
+/* Definición del color Cosmo Purple */
+.btn-cosmo-purple {
+  background-color: #673ab7; /* Morado Cosmo */
+  color: #ffffff;
+  border-color: #673ab7;
+  border-radius: 12px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-cosmo-purple:hover {
+  background-color: #5e35b1;
+  color: #ffffff;
+}
+
+.btn-cosmo-purple:active {
+  transform: scale(0.98);
+}
+
+.btn-cosmo-purple:disabled {
+  background-color: #b0bec5; /* Gris cuando está deshabilitado */
+  border-color: #b0bec5;
+  opacity: 0.7;
+}

@@ -1,86 +1,31 @@
-/* Variables de estilo Vapor */
-:root {
-    --vapor-pink: #ea39b8;
-    --vapor-cyan: #32fbe2;
-    --vapor-purple: #9146ff;
+:host {
+    display: block;
+    background-color: #f8f9fa; /* Fondo gris claro tipo Dashboard */
+    min-height: 100vh;
 }
 
-/* Tarjeta con efecto de elevación y neón */
-.card-vapor {
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border-width: 1px;
-    overflow: hidden;
-}
-
-.card-vapor:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5), 0 0 15px var(--vapor-cyan) !important;
-    border-color: var(--vapor-cyan) !important;
-}
-
-/* Control total de la imagen */
-.image-container {
-    position: relative;
-    height: 220px; /* Altura fija para que todas sean iguales */
-    overflow: hidden;
-    background: #000;
-}
-
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Cambiado a contain para logos o cover para fotos */
-    padding: 10px; /* Espacio para que la imagen no toque los bordes si es logo */
-    transition: transform 0.5s ease;
-}
-
-.card-vapor:hover .image-container img {
-    transform: scale(1.1);
-}
-
-.image-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(0deg, rgba(26,11,46,0.8) 0%, rgba(0,0,0,0) 50%);
-    pointer-events: none;
-}
-
-/* Botones de acción mejorados */
-.actions-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-}
-
-.btn-action {
-    border-radius: 8px;
-    padding: 8px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s;
-}
-
-.btn-action:hover {
-    box-shadow: 0 0 10px currentColor;
-}
-
-/* Estilización de Inputs */
-.custom-input {
+.form-control-lg {
+    font-size: 1rem;
     border-radius: 10px;
-    padding: 12px;
-    transition: 0.3s;
 }
 
-.custom-input:focus {
-    box-shadow: 0 0 15px var(--vapor-pink) !important;
-    border-color: var(--vapor-pink) !important;
+.form-control:focus {
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+    border: 1px solid #0d6efd !important;
 }
 
-/* Detalles de texto */
-.ls-1 { letter-spacing: 1px; }
-.ls-2 { letter-spacing: 2px; }
-.fw-black { font-weight: 900; }
+.comunity-card {
+    transition: transform 0.2s ease;
+    border-radius: 15px;
+}
 
-.shadow-neon { box-shadow: 0 0 10px var(--vapor-purple); }
-.shadow-neon-warning { box-shadow: 0 0 15px #ffce00; }
+.comunity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+}
