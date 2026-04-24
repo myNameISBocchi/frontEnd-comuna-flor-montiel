@@ -35,43 +35,34 @@
 
   <div class="row">
     @for(item of comunity; track item.comunityId) {
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden">
-          <div class="position-relative">
-            <img [src]="'http://localhost/app-back/public/' + item.photoComunity" 
-                 class="card-img-top" style="height: 180px; object-fit: cover;" alt="comunidad">
-            <span class="badge bg-success position-absolute top-0 end-0 m-3">Verificado</span>
+      <div class="col-auto mb-4">
+        <div class="comunity-card">
+          <div class="img-wrapper">
+            <img [src]="'http://localhost/app-back/public/' + item.photoComunity" alt="comunidad">
+            <span class="verificado-badge">Verificado</span>
           </div>
           
-          <div class="card-body p-4">
-            <h5 class="card-title fw-bold text-dark mb-2">{{item.comunityName}}</h5>
-            <p class="text-muted small mb-4">
-              <i class="fa-solid fa-location-dot me-2 text-danger"></i>{{item.googleMaps}}
+          <div class="card-info">
+            <h5 class="title">{{item.comunityName}}</h5>
+            <p class="location">
+              <i class="fa-solid fa-location-dot"></i> {{item.googleMaps}}
             </p>
-
-            <div class="d-flex gap-2 border-top pt-3">
-              <button class="btn btn-info btn-sm flex-grow-1 text-white shadow-sm" 
-                      data-bs-toggle="modal" data-bs-target="#editModal" (click)="openModalButton(item)">
-                <i class="fa-solid fa-pen me-1"></i>Editar
-              </button>
-              
-              <label [for]="'file-' + item.comunityId" class="btn btn-outline-secondary btn-sm shadow-sm">
-                <i class="fa-solid fa-camera"></i>
-              </label>
-              <input type="file" [id]="'file-' + item.comunityId" hidden (change)="onFileSelected($event, item.comunityId)">
-              
-              <button class="btn btn-outline-danger btn-sm shadow-sm" (click)="deleteComunity(item.comunityId)">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </div>
           </div>
-        </div>
-      </div>
-    } @empty {
-      <div class="col-12 text-center py-5">
-        <div class="p-5 bg-white rounded-3 shadow-sm">
-          <i class="fa-solid fa-magnifying-glass fa-3x text-light mb-3"></i>
-          <h4 class="text-muted">No se encontraron registros</h4>
+
+          <div class="card-actions">
+            <button class="action-btn edit" data-bs-toggle="modal" data-bs-target="#editModal" (click)="openModalButton(item)">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            
+            <label [for]="'file-' + item.comunityId" class="action-btn view">
+              <i class="fa-solid fa-camera"></i>
+            </label>
+            <input type="file" [id]="'file-' + item.comunityId" hidden (change)="onFileSelected($event, item.comunityId)">
+            
+            <button class="action-btn delete" (click)="deleteComunity(item.comunityId)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
         </div>
       </div>
     }
