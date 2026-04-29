@@ -1,1 +1,5 @@
-<router-outlet></router-outlet>
+<app-header *ngIf="router.url !== '/login'"></app-header>
+
+<main [class.mt-5]="router.url !== '/login'">
+  <router-outlet></router-outlet>
+</main>
