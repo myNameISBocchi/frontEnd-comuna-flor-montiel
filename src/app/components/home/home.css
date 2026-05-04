@@ -1,48 +1,82 @@
-
-.btn-nav {
-    border: none;
-    background: transparent;
-    border-radius: 12px;
-    font-weight: 600;
-    color: #4a5568;
-    transition: all 0.3s ease;
+/* Contenedor principal para separar sidebar de contenido */
+.main-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Gris claro de fondo */
 }
 
-.btn-nav:hover {
-    background-color: #f7fafc;
-    color: #3182ce;
-    transform: translateX(5px);
+/* Barra Lateral Estilo 1.png */
+.sidebar {
+  width: 260px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
 }
 
-.welcome-banner {
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-    border-radius: 20px;
-    color: white;
+.custom-logo {
+  max-height: 120px;
 }
 
+.nav-menu {
+  flex-grow: 1;
+}
 
-.icon-circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 15px;
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #eee;
+  transition: background 0.3s;
+}
+
+.nav-item i {
+  width: 25px;
+  margin-right: 15px;
+  font-size: 1.1rem;
+}
+
+/* Efecto hover/active del diseño */
+.nav-item:hover, .nav-item.active {
+  background-color: #e9ecef; /* El gris de selección en 1.png */
+}
+
+/* Footer de la sidebar (Cerrar Sesión) */
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.btn-logout {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Área de contenido y Topbar */
+.content-area {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 60px;
+  background-color: white;
+  margin: 15px;
+  border-radius: 8px; /* Bordes redondeados del diseño */
+}
+
+.empty-state {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    height: 60vh;
 }
-
-.bg-soft-success { background-color: rgba(34, 197, 94, 0.1); }
-.bg-soft-primary { background-color: rgba(59, 130, 246, 0.1); }
-
-
-.hover-up {
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border-radius: 15px;
-}
-
-.hover-up:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
-}
-
-.ls-2 { letter-spacing: 2px; }

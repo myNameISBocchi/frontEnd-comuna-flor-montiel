@@ -1,8 +1,8 @@
-import { Component, inject } from "@angular/core"; // Añadimos inject
+import { Component, inject } from "@angular/core"; 
 import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from "@angular/forms";
-import { Auth } from "../../services/auth"; // <--- Importamos tu servicio
-import { Router } from "@angular/router"; // <--- Importamos el router
+import { Auth } from "../../services/auth"; 
+import { Router } from "@angular/router"; 
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ import { Router } from "@angular/router"; // <--- Importamos el router
 export class Login {
   loginForm: FormGroup;
 
-  // Usamos inject para traer los servicios
+
   private authService = inject(Auth);
   private router = inject(Router);
 
@@ -27,11 +27,10 @@ export class Login {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      // LLAMADA REAL AL BACKEND
+      
       this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
           console.log('¡Login exitoso!', response);
-          // Si el login es correcto, navegamos al home
           this.router.navigate(['/home']);
         },
         error: (err) => {
@@ -40,7 +39,7 @@ export class Login {
         }
       });
     } else {
-      this.loginForm.markAllAsTouched(); // No olvides los paréntesis ()
+      this.loginForm.markAllAsTouched(); 
     }
   }
 

@@ -1,1 +1,55 @@
-<p>person-list works!</p>
+<!-- Buscador Superior -->
+<div class="search-bar-container">
+    <div class="search-input-wrapper">
+        <i class="fas fa-search"></i>
+        <input 
+            type="text" 
+            [(ngModel)]="searchTerm" 
+            (input)="onSearch()" 
+            placeholder="Buscar vocero...">
+    </div>
+</div>
+
+
+<div class="register-action">
+    <button class="btn-register">+ Registrar</button>
+</div>
+
+<div class="container-cards">
+    <div *ngFor="let person of filteredPeoples" class="card-vocero">
+        
+        
+        <div class="card-image-wrapper" (click)="fileInput.click()">
+            <img 
+                [src]="person.photoPerson ? 'http://localhost/app-back/public/' + person.photoPerson : 'assets/img/default-avatar.png'" 
+                [alt]="person.firstName" 
+                class="vocero-img"
+                (error)="handleImageError($event)">
+            
+            <div class="overlay-edit">
+                <i class="fas fa-camera"></i>
+            </div>
+        </div>
+
+      
+        <input #fileInput type="file" (change)="onFileSelected($event, person.personId)" style="display: none">
+
+      
+        <div class="card-body">
+            <p><strong>Nombre:</strong> {{ person.firstName }}</p>
+            <p><strong>Comunidad:</strong> {{ person.comunityName || 'N/A' }}</p>
+            <p><strong>Ubicación:</strong> {{ person.locality?.city || 'N/A' }}</p>
+            <p><strong>Rol:</strong> {{ person.roleName || 'N/A' }}</p>
+        </div>
+
+        <!-- Botones de Acción (Estilo circular gris) -->
+        <div class="card-footer-actions">
+            <button class="circle-btn" (click)="fileInput.click()">
+                <i class="fas fa-image"></i>
+            </button>
+            <button class="circle-btn delete" (click)="deletePerson(person.personId)">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+.form-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-card {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.custom-input {
+    width: 100%;
+    padding: 8px 15px;
+    border: 1px solid #707070;
+    border-radius: 10px; /* Redondeado como en la imagen */
+    background-color: #fff;
+    outline: none;
+}
+
+.btn-registrar {
+    background-color: #C4C4C4; /* Gris del botón de la imagen */
+    border: none;
+    padding: 10px 60px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-registrar:hover:not(:disabled) {
+    background-color: #a0a0a0;
+}
+
+.btn-registrar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

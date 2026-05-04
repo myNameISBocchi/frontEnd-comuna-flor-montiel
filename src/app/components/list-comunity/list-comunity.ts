@@ -65,7 +65,7 @@ export class ListComunity implements OnInit {
   }
 
   createComunity(event:Event){
-    event.preventDefault();// => Esto evita que la pagina se recarga ojo
+    event.preventDefault();
     const form = event.target as HTMLFormElement;
 
     const DataComunity:any = {

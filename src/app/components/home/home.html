@@ -1,88 +1,64 @@
-<div class="container-fluid py-4 animate__animated animate__fadeIn">
-  <div class="row g-4">
+<div class="d-flex" style="min-height: 100vh; background-color: #f0f2f5;">
+  
+  <!-- BARRA LATERAL (Sidenav) -->
+  <aside class="bg-white shadow-sm" style="width: 250px; display: flex; flex-direction: column;">
+    <div class="p-4 text-center">
+      <!-- Aquí va tu logo del Consejo Comunal -->
+      <img src="assets/img/logo.png" alt="Logo" class="img-fluid" style="max-height: 100px;">
+    </div>
+
+    <nav class="flex-grow-1 mt-2">
+      <ul class="list-unstyled">
+        <li>
+          <a routerLink="/comunity" routerLinkActive="bg-light" class="nav-link px-4 py-3 text-dark border-bottom">
+            <i class="fa-solid fa-house me-3"></i>Gestionar Comunidad
+          </a>
+        </li>
+        <li>
+          <a routerLink="/comites" class="nav-link px-4 py-3 text-dark border-bottom">
+            <i class="fa-solid fa-users me-3"></i>Gestionar Comites
+          </a>
+        </li>
+        <li>
+          <a routerLink="/consejos" class="nav-link px-4 py-3 text-dark border-bottom">
+            <i class="fa-solid fa-sitemap me-3"></i>Gestionar Consejos
+          </a>
+        </li>
+        <li>
+          <a routerLink="/person" class="nav-link px-4 py-3 text-dark border-bottom">
+            <i class="fa-solid fa-user-group me-3"></i>Gestionar Voceros
+          </a>
+        </li>
+        <li>
+          <a routerLink="/roles" class="nav-link px-4 py-3 text-dark">
+            <i class="fa-solid fa-key me-3"></i>Gestionar Roles
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Botón de salida usando TU función logout -->
+    <div class="p-4 border-top">
+      <button (click)="logout()" class="btn btn-link text-dark text-decoration-none p-0">
+        <i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Cerrar Sesion
+      </button>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO DERECHO -->
+  <div class="flex-grow-1 d-flex flex-column">
     
-    <aside class="col-lg-3 col-md-4">
-      <div class="card border-0 shadow-sm p-3 sticky-top" style="top: 20px; border-radius: 15px;">
-        <h6 class="text-uppercase text-primary fw-bold mb-4 small ls-2">
-          <i class="fa-solid fa-rocket me-2"></i>Acciones
-        </h6>
-        
-        <div class="d-grid gap-2">
-          <button class="btn btn-nav text-start p-3" routerLink="/comunity">
-            <i class="fa-solid fa-city me-3 text-success"></i>Comunidades
-          </button>
-          
-          <button class="btn btn-nav text-start p-3" routerLink="/person">
-            <i class="fa-solid fa-address-book me-3 text-primary"></i>Personas
-          </button>
-        </div>
-
-        <div class="mt-5 pt-5 text-center border-top">
-          <div class="logo-placeholder mx-auto mb-2">
-             <i class="fa-solid fa-mountain-sun fa-3x text-muted opacity-25"></i>
-          </div>
-          <p class="text-muted small fw-bold mb-0">FLOR-MONTIEL</p>
-          <span class="badge bg-light text-dark border small">v1.0.2</span>
-        </div>
+    <!-- BARRA SUPERIOR (Topbar) -->
+    <header class="bg-white m-3 p-3 shadow-sm rounded d-flex justify-content-between align-items-center">
+      <h5 class="mb-0 fw-bold">Home</h5>
+      <div class="text-secondary">
+        <i class="fa-solid fa-circle-user fa-2x"></i>
       </div>
-    </aside>
+    </header>
 
-    <main class="col-lg-9 col-md-8">
-      
-      <div class="welcome-banner p-5 mb-4 shadow-sm">
-        <div class="row align-items-center">
-          <div class="col-md-8">
-            <h1 class="display-5 fw-bold text-white mb-2">¡Hola de nuevo!</h1>
-            <p class="lead text-white-50 mb-0">Sistema de Gestión para el Consejo Comunal Flor-Montiel.</p>
-          </div>
-          <div class="col-md-4 text-center d-none d-md-block">
-            <i class="fa-solid fa-laptop-code fa-5x text-white opacity-25"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card h-100 border-0 shadow-sm hover-up" routerLink="/comunity">
-            <div class="card-body p-4">
-              <div class="icon-circle bg-soft-success text-success mb-3">
-                <i class="fa-solid fa-map-location-dot fa-xl"></i>
-              </div>
-              <h5 class="fw-bold">Comunidades</h5>
-              <p class="text-muted small">Administra los voceros, comités y la organización geográfica de tu comunidad.</p>
-              <div class="d-flex align-items-center text-success fw-bold small">
-                Ir ahora <i class="fa-solid fa-arrow-right ms-2"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="card h-100 border-0 shadow-sm hover-up" routerLink="/person">
-            <div class="card-body p-4">
-              <div class="icon-circle bg-soft-primary text-primary mb-3">
-                <i class="fa-solid fa-id-card-clip fa-xl"></i>
-              </div>
-              <h5 class="fw-bold">Personas</h5>
-              <p class="text-muted small">Registro detallado de habitantes, cargas familiares y datos socio-económicos.</p>
-              <div class="d-flex align-items-center text-primary fw-bold small">
-                Ir ahora <i class="fa-solid fa-arrow-right ms-2"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-4 p-4 bg-white rounded shadow-sm border-start border-4 border-info">
-        <div class="d-flex align-items-center">
-          <i class="fa-solid fa-circle-info text-info me-3 fa-lg"></i>
-          <div>
-            <h6 class="fw-bold mb-0">Consejo del día</h6>
-            <p class="mb-0 text-muted small">Recuerda mantener los datos de los voceros actualizados para generar reportes precisos.</p>
-          </div>
-        </div>
-      </div>
-
+    <!-- AQUÍ SE CARGAN LOS DEMÁS COMPONENTES -->
+    <main class="p-4 pt-0">
+      <router-outlet></router-outlet>
     </main>
   </div>
 </div>
