@@ -35,12 +35,24 @@ export class PersonList implements OnInit {
   }
 
   onSearch(){
-    const term = this.searchTerm.toLowerCase().trim();
-    if(!term){
+    const data = this.searchTerm.trim();
+    if(!data){
       this.filteredPeoples = this.peoples;
       return;
     }
-  }
+
+    this.personService.searchPeople(data).subscribe({
+      next: (res:any) => {
+        this.filteredPeoples = res.results || [];
+        this.cdr.detectChanges();
+      },
+      error:(err) => {
+        console.error('error',err);
+        this.filteredPeoples = [];
+      }
+    });
+
+      }
 
   deletePerson(id:string){
     if(confirm("deseas eliminar este registro?")){

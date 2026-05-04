@@ -1,9 +1,9 @@
 <div class="d-flex" style="min-height: 100vh; background-color: #f0f2f5;">
   
-  <!-- BARRA LATERAL (Sidenav) -->
+  
   <aside class="bg-white shadow-sm" style="width: 250px; display: flex; flex-direction: column;">
     <div class="p-4 text-center">
-      <!-- Aquí va tu logo del Consejo Comunal -->
+     
       <img src="assets/img/logo.png" alt="Logo" class="img-fluid" style="max-height: 100px;">
     </div>
 
@@ -37,7 +37,7 @@
       </ul>
     </nav>
 
-    <!-- Botón de salida usando TU función logout -->
+   
     <div class="p-4 border-top">
       <button (click)="logout()" class="btn btn-link text-dark text-decoration-none p-0">
         <i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Cerrar Sesion
@@ -45,10 +45,10 @@
     </div>
   </aside>
 
-  <!-- CONTENIDO DERECHO -->
+  
   <div class="flex-grow-1 d-flex flex-column">
     
-    <!-- BARRA SUPERIOR (Topbar) -->
+    
     <header class="bg-white m-3 p-3 shadow-sm rounded d-flex justify-content-between align-items-center">
       <h5 class="mb-0 fw-bold">Home</h5>
       <div class="text-secondary">
@@ -56,7 +56,7 @@
       </div>
     </header>
 
-    <!-- AQUÍ SE CARGAN LOS DEMÁS COMPONENTES -->
+   
     <main class="p-4 pt-0">
       <router-outlet></router-outlet>
     </main>
