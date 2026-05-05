@@ -32,7 +32,6 @@ export class Home implements OnInit{
   loadUserProfile(id: string) {
     this.personService.getPersonById(id).subscribe({
       next: (response) => {
-        // Según tu controller, la respuesta viene en 'results'
         if (response && response.results) {
           this.userData = response.results;
           console.log('Datos del perfil cargados:', this.userData);

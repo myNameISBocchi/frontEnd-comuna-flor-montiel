@@ -1,6 +1,6 @@
 <div class="d-flex" style="min-height: 100vh; background-color: #f0f2f5;">
   
-  <!-- BARRA LATERAL (Sidenav) -->
+ 
   <aside class="bg-white shadow-sm" style="width: 250px; display: flex; flex-direction: column;">
     <div class="p-4 text-center">
       <img src="assets/img/logo.png" alt="Logo" class="img-fluid" style="max-height: 100px;">
@@ -43,15 +43,15 @@
     </div>
   </aside>
 
-  <!-- CONTENIDO DERECHO -->
+  
   <div class="flex-grow-1 d-flex flex-column">
     
-    <!-- BARRA SUPERIOR (Topbar) Dinámica -->
+    
     <header class="bg-white m-3 p-3 shadow-sm rounded d-flex justify-content-between align-items-center">
       <h5 class="mb-0 fw-bold text-primary">Panel de Control</h5>
       
       <div class="position-relative">
-        <!-- Gatillo del Menú -->
+        
         <div class="d-flex align-items-center" (click)="showDropdown = !showDropdown" style="cursor: pointer;">
           <div class="text-end me-3 d-none d-md-block">
             <p class="mb-0 fw-bold small text-dark">{{ userData?.firstName }} {{ userData?.lastName }}</p>
@@ -70,7 +70,7 @@
           </div>
         </div>
 
-        <!-- Menú Desplegable de Información -->
+       
         <div *ngIf="showDropdown && userData" 
              class="position-absolute end-0 bg-white shadow-lg rounded-3 p-3 mt-3 border-0" 
              style="z-index: 1050; width: 280px;">
@@ -123,7 +123,7 @@
       </div>
     </header>
 
-    <!-- AQUÍ SE CARGAN LOS DEMÁS COMPONENTES -->
+    
     <main class="p-4 pt-0">
       <router-outlet></router-outlet>
     </main>
