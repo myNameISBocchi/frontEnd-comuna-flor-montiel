@@ -14,7 +14,6 @@ import { Router } from "@angular/router";
 export class Login {
   loginForm: FormGroup;
 
-
   private authService = inject(Auth);
   private router = inject(Router);
 
@@ -29,20 +28,18 @@ export class Login {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
-          
           if (response.results && response.results.length > 0) {
             const data = response.results[0];
 
-          
             localStorage.setItem('auth_token', data.token);
-            
             
             if (data.personId) {
               localStorage.setItem('personId', data.personId.toString());
             }
 
             console.log('¡Login exitoso!', data);
-            this.router.navigate(['/home']);
+            
+            window.location.href = '/home';
           }
         },
         error: (err) => {
