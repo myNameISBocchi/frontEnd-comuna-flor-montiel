@@ -45,6 +45,8 @@
                 <div class="card-body p-2">
                     <p class="mb-1 small"><strong>Nombre:</strong> {{ person.firstName }}</p>
                     <p class="mb-1 small"><strong>Comunidad:</strong> {{ person.comunityName || 'N/A' }}</p>
+                    <p class="mb-1 small"><strong>Consejo:</strong> {{ person.councilName || 'N/A' }}</p>
+                    <p class="mb-1 small"><strong>Comite:</strong> {{ person.committeeName || 'N/A' }}</p>
                     <p class="mb-1 small"><strong>Ubicación:</strong> {{ person.locality?.state || 'N/A' }}</p>
                     <p class="mb-0 small"><strong>Rol:</strong> {{ person.roleName || 'N/A' }}</p>
                 </div>
