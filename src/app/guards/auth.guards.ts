@@ -9,7 +9,7 @@ export const authGuard = () => {
   if (authService.isLoggedIn()) {
     return true;
   } else {
-    // Si no está logueado, lo mandamos al login
+    
     router.navigate(['/login']);
     return false;
   }

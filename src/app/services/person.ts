@@ -28,7 +28,7 @@ export class Person {
   }
 
   getPersonById(id:string):Observable <any>{
-    return this.http.get<any>(`${this.apiUrl}/peoples/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
-  
+
 }

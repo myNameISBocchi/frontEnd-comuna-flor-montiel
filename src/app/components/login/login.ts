@@ -27,11 +27,23 @@ export class Login {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      
       this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
-          console.log('¡Login exitoso!', response);
-          this.router.navigate(['/home']);
+          
+          if (response.results && response.results.length > 0) {
+            const data = response.results[0];
+
+          
+            localStorage.setItem('auth_token', data.token);
+            
+            
+            if (data.personId) {
+              localStorage.setItem('personId', data.personId.toString());
+            }
+
+            console.log('¡Login exitoso!', data);
+            this.router.navigate(['/home']);
+          }
         },
         error: (err) => {
           console.error('Error en el login:', err);
